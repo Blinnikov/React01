@@ -16,11 +16,18 @@ module.exports ={
     publicPath: '/static/'
   },
   plugins: [
-    new webpack.HotModuleReplacementPlugin(),
-    new webpack.NoErrorsPlugin()
+    new webpack.HotModuleReplacementPlugin()
   ],
   module: {
     rules: [
+      {
+        test: /\.jsx?$/,
+        enforce: "pre",
+        use: "eslint-loader",
+        include: [
+          path.resolve(__dirname, 'src')
+        ]
+      },
       {
         use: [
           'babel-loader'
