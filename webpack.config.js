@@ -4,6 +4,9 @@ var webpack = require('webpack');
 module.exports ={
   devtool: 'cheap-module-eval-souce-map',
   entry: [
+    'react-hot-loader/patch',
+    // activate HMR for React
+
     'webpack-hot-middleware/client',
     './src/index'
   ],
@@ -20,21 +23,12 @@ module.exports ={
     rules: [
       {
         use: [
-          // 'babel-loader',
-          'babel-loader?presets[]=es2015&presets[]=stage-0&presets[]=react'
+          'babel-loader'
         ],
         include: [
           path.resolve(__dirname, 'src')
         ],
         test: /\.jsx?$/,         // Match both .js and .jsx files
-        query: {
-          // presets: [
-          //  'es2015',
-          //  'stage-0',
-          //   'react'
-          // ],
-          plugins: ['transform-runtime']
-        }
       }
     ]
   }

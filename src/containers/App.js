@@ -1,7 +1,7 @@
 import React, { Component, PropTypes } from 'react'
 
 const App = () => {
-   return <div>Testing yo 1</div>
+   return <div>Testing + HMR</div>
 };
 
 export default App;
