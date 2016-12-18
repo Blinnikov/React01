@@ -35,11 +35,11 @@ module.exports ={
         include: [
           path.resolve(__dirname, 'src')
         ],
-        test: /\.jsx?$/,         // Match both .js and .jsx files
+        test: /\.jsx?$/,
       }
     ]
   },
   resolve: {
-    extensions: ['.js', '.jsx']
+    extensions: ['.js', '.jsx', 'json']
   },
 }

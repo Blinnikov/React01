@@ -4,7 +4,7 @@ import ReactDOM from 'react-dom';
 import configureStore from './configureStore';
 // AppContainer is a necessary wrapper component for HMR
 import { AppContainer } from 'react-hot-loader';
-import Root from './components/Root';
+import Root from './containers/Root';
 
 const store = configureStore();
 
@@ -21,5 +21,5 @@ render();
 
 // Hot Module Replacement API
 if (module.hot) {
-  module.hot.accept('./components/Root', render);
+  module.hot.accept('./containers/Root', render);
 }
