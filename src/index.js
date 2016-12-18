@@ -1,17 +1,14 @@
 import 'babel-polyfill';
 import React from 'react';
 import ReactDOM from 'react-dom';
+import configureStore from './configureStore';
+import Root from './components/Root';
 
-import { AppContainer } from 'react-hot-loader';
-// AppContainer is a necessary wrapper component for HMR
-
-import App from './containers/App'
+const store = configureStore();
 
 const render = () => {
   ReactDOM.render(
-    <AppContainer>
-      <App />
-    </AppContainer>,
+    <Root store={store} />,
     document.getElementById('root')
   );
 };
@@ -20,5 +17,6 @@ render();
 
 // Hot Module Replacement API
 if (module.hot) {
-  module.hot.accept('./containers/App', render);
+  // module.hot.accept('./containers/App', render);
+  module.hot.accept('./components/Root', render);
 }

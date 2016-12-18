@@ -38,5 +38,8 @@ module.exports ={
         test: /\.jsx?$/,         // Match both .js and .jsx files
       }
     ]
-  }
+  },
+  resolve: {
+    extensions: ['.js', '.jsx']
+  },
 }
