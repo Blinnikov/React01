@@ -1,9 +1,10 @@
-const init = (state = {}, action) => {
-  if (action) {
-    return action;
-  }
-  
-  return state;
-};
+import { combineReducers } from 'redux';
+import user from './user';
+import page from './page';
 
-export default init;
+const rootReducer = combineReducers({
+  user,
+  page
+})
+
+export default rootReducer;

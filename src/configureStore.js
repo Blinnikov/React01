@@ -1,8 +1,15 @@
 import { createStore } from 'redux';
-import reducer from './reducers';
+import rootReducer from './reducers';
+
+const initialState = {
+  user: {
+    firstName: 'Gianluigi',
+    lastName: 'Buffon'
+  }
+}
 
 const configureStore = () => {
-  return createStore(reducer);
+  return createStore(rootReducer, initialState);
 };
 
 export default configureStore;
