@@ -3,20 +3,31 @@ var webpack = require('webpack');
 
 module.exports ={
   devtool: 'cheap-module-eval-souce-map',
-  entry: [
-    'react-hot-loader/patch',
-    // activate HMR for React
+  entry: {
+    hot: [
+      'react-hot-loader/patch',
+      // activate HMR for React
 
-    'webpack-hot-middleware/client',
-    './src/index'
-  ],
+      'webpack-hot-middleware/client'
+    ],
+    main: [
+      './src/index'
+    ],
+    vendor: ["babel-polyfill", "react", "react-dom", "redux", "react-redux"]
+  },
   output: {
     path: path.join(__dirname, 'dist'),
-    filename: 'bundle.js',
+    filename: '[name].js',
     publicPath: '/static/'
   },
   plugins: [
-    new webpack.HotModuleReplacementPlugin()
+    new webpack.HotModuleReplacementPlugin(),
+    new webpack.optimize.CommonsChunkPlugin({
+      names: [
+        'vendor',
+        'hot'
+      ] // Specify the common bundle's name.
+    })
   ],
   module: {
     rules: [
