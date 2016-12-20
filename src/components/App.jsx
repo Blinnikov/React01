@@ -1,11 +1,12 @@
 import React from 'react'
-import User from '../containers/User';
+import UserInfo from '../containers/UserInfo';
+import Layout from './Layout';
 
 const App = () => {
    return (
      <div>
-       <User />
-       Testing + HMR
+       <UserInfo />
+       <Layout />
      </div>
    );
 };

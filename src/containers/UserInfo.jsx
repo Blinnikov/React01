@@ -1,7 +1,7 @@
 import React from 'react'
 import { connect } from 'react-redux';
 
-let User = ({ firstName }) => {
+let UserInfo = ({ firstName }) => {
   return <div>Hello, {firstName}</div>;
 };
 
@@ -11,6 +11,6 @@ const mapStateToProps = ({ user }) => {
   };
 }
 
-User = connect(mapStateToProps)(User);
+UserInfo = connect(mapStateToProps)(UserInfo);
 
-export default User;
+export default UserInfo;
