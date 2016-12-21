@@ -1,4 +1,4 @@
-const user = (state = {}, action) => {
+const layout = (state = {}, action) => {
   // Temporarily removes warning
   if (action) {
     return state;
@@ -7,4 +7,4 @@ const user = (state = {}, action) => {
   return state;
 };
 
-export default user;
+export default layout;

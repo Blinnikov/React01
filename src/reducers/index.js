@@ -1,10 +1,10 @@
 import { combineReducers } from 'redux';
-import user from './user';
-import page from './page';
+import userInfo from './userInfo';
+import layout from './layout';
 
 const rootReducer = combineReducers({
-  user,
-  page
+  userInfo,
+  layout
 })
 
 export default rootReducer;

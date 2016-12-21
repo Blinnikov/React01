@@ -1,4 +1,4 @@
-const page = (state = {}, action) => {
+const userInfo = (state = {}, action) => {
   // Temporarily removes warning
   if (action) {
     return state;
@@ -7,4 +7,4 @@ const page = (state = {}, action) => {
   return state;
 };
 
-export default page;
+export default userInfo;

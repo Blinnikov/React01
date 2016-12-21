@@ -1,6 +1,6 @@
 import React from 'react';
 import Filters from './Filters';
-import PhotoGrid from './PhotoGrid';
+import PhotoGrid from '../containers/PhotoGrid';
 
 const Layout = () => (
   <div>

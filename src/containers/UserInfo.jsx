@@ -8,9 +8,9 @@ UserInfo.propTypes = {
   firstName: PropTypes.string.isRequired
 };
 
-const mapStateToProps = ({ user }) => {
+const mapStateToProps = ({ userInfo }) => {
   return {
-    firstName: user.firstName
+    firstName: userInfo.firstName
   };
 }
 
