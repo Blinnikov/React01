@@ -1,5 +1,5 @@
 import React from 'react';
-import Filters from './Filters';
+import Filters from '../containers/Filters';
 import PhotoGrid from '../containers/PhotoGrid';
 
 const Layout = () => (

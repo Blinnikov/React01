@@ -1,10 +1,13 @@
 const layout = (state = {}, action) => {
-  // Temporarily removes warning
-  if (action) {
-    return state;
+  switch (action.type) {
+    case 'SET_YEAR_FILTER':
+      return {
+        ...state,
+        year: action.year
+      };
+    default:
+      return state;
   }
-
-  return state;
 };
 
 export default layout;
