@@ -26,7 +26,7 @@ module.exports ={
       names: [
         'vendor',
         'hot'
-      ] // Specify the common bundle's name.
+      ]
     })
   ],
   module: {
