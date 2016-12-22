@@ -10,7 +10,7 @@ let PhotoGrid = ({ year, photos }) => (
 PhotoGrid.propTypes = {
   year: PropTypes.number.isRequired,
   photos: PropTypes.array
-}
+};
 
 const mapStateToProps = ({ layout }) => {
   const { year, photos } = layout;

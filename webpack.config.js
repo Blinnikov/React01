@@ -23,10 +23,7 @@ module.exports ={
   plugins: [
     new webpack.HotModuleReplacementPlugin(),
     new webpack.optimize.CommonsChunkPlugin({
-      names: [
-        'vendor',
-        'hot'
-      ]
+      names: ['vendor', 'hot']
     })
   ],
   module: {

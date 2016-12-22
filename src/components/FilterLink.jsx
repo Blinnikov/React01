@@ -6,7 +6,7 @@ const FilterLink = ({ year, active, setYear }) => {
   }
 
   return (
-    <a href='#' 
+    <a href='#'
       onClick={() => setYear(year)}>
       {year}
     </a>
@@ -16,6 +16,6 @@ FilterLink.propTypes = {
   year: PropTypes.number.isRequired,
   active: PropTypes.bool,
   setYear: PropTypes.func
-}
+};
 
 export default FilterLink;

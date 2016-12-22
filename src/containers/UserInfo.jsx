@@ -12,7 +12,7 @@ const mapStateToProps = ({ userInfo }) => {
   return {
     firstName: userInfo.firstName
   };
-}
+};
 
 UserInfo = connect(mapStateToProps)(UserInfo);
 

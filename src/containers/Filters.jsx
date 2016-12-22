@@ -25,13 +25,13 @@ let Filters = ({ year, setYear }) => (
 Filters.propTypes = {
   year: PropTypes.number.isRequired,
   setYear: PropTypes.func
-}
+};
 
 const mapStateToProps = ({ layout }) => {
   return {
     year: layout.year
   };
-}
+};
 
 const mapDispatchToProps = (dispatch) => ({
   setYear(year) {
