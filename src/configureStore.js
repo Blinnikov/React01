@@ -1,4 +1,6 @@
-import { createStore } from 'redux';
+import { createStore, applyMiddleware } from 'redux';
+import thunk from 'redux-thunk';
+import createLogger from 'redux-logger';
 import rootReducer from './reducers';
 
 const initialState = {
@@ -10,10 +12,16 @@ const initialState = {
     year: 2016,
     photos: []
   }
-}
+};
+
+const middlewares = [thunk, createLogger()];
 
 const configureStore = () => {
-  return createStore(rootReducer, initialState);
+  return createStore(
+    rootReducer,
+    initialState,
+    applyMiddleware(...middlewares)
+  );
 };
 
 export default configureStore;
