@@ -30,20 +30,27 @@ module.exports ={
     rules: [
       {
         test: /\.jsx?$/,
-        enforce: "pre",
-        use: "eslint-loader",
+        enforce: 'pre',
+        use: 'eslint-loader',
         include: [
           path.resolve(__dirname, 'src')
         ]
       },
       {
-        use: [
-          'babel-loader'
-        ],
+        test: /\.jsx?$/,
+        use: 'babel-loader',
         include: [
           path.resolve(__dirname, 'src')
-        ],
-        test: /\.jsx?$/,
+        ]
+      },
+      {
+        test: /\.scss$/,
+        use: [
+          'style-loader',
+          'css-loader',
+          'postcss-loader',
+          'sass-loader'
+        ]
       }
     ]
   },
