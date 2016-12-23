@@ -14,7 +14,8 @@ const initialState = {
   }
 };
 
-const middlewares = [thunk, createLogger()];
+const logger = createLogger();
+const middlewares = [thunk,logger];
 
 const configureStore = () => {
   return createStore(
