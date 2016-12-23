@@ -1,15 +1,14 @@
 import React, { PropTypes } from 'react';
+import FlatButton from 'material-ui/FlatButton';
 
 const FilterLink = ({ year, active, setYear }) => {
-  if (active) {
-    return <span>{year}</span>;
-  }
-
   return (
-    <a href='#'
-      onClick={() => setYear(year)}>
-      {year}
-    </a>
+    <FlatButton
+      label={year}
+      onClick={() => setYear(year)}
+      primary={true}
+      disabled={active}
+    />
   );
 };
 FilterLink.propTypes = {
