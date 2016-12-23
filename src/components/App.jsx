@@ -8,9 +8,8 @@ const App = () => {
     <div>
       <AppBar
         title="Redux 01"
-        iconClassNameRight="muidocs-icon-navigation-expand-more"
+        iconElementRight={<UserInfo />}
       />
-      <UserInfo />
       <Layout />
     </div>
   );

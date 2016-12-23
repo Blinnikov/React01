@@ -1,8 +1,12 @@
 import React, { PropTypes } from 'react'
+import FlatButton from 'material-ui/FlatButton';
 import { connect } from 'react-redux';
 
+import './UserInfo.scss';
+
 let UserInfo = ({ firstName }) => {
-  return <div>Hello, {firstName}</div>;
+  const label = `Hello, ${firstName}`;
+  return <FlatButton label={label} className='logged-in' />;
 };
 UserInfo.propTypes = {
   firstName: PropTypes.string.isRequired
