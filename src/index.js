@@ -5,6 +5,7 @@ import configureStore from './configureStore';
 // AppContainer is a necessary wrapper component for HMR
 import { AppContainer } from 'react-hot-loader';
 import Root from './containers/Root';
+import injectTapEventPlugin from 'react-tap-event-plugin';
 
 import './styles/app.scss'
 
@@ -19,6 +20,7 @@ const render = () => {
   );
 };
 
+injectTapEventPlugin();
 render();
 
 // Hot Module Replacement API
