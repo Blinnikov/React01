@@ -18,6 +18,7 @@
   },
   "globals": {
     "Promise": true,
-    "setTimeout": true
+    "setTimeout": true,
+    "VK": true
   }
 }

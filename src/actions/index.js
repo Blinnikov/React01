@@ -21,6 +21,7 @@ export const getPhotos = (year) => (dispatch, /* getState */) => {
         response
       }),
     error =>
+      // TODO: Add error message component
       dispatch({
         type: 'GET_PHOTOS_FAILURE',
         year,
