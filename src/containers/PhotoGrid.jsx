@@ -2,6 +2,8 @@ import React, { PropTypes, Component } from 'react';
 import { connect } from 'react-redux';
 import * as actions from '../actions';
 
+import CircularProgress from 'material-ui/CircularProgress';
+
 class PhotoGrid extends Component {
   componentDidMount() {
     this.getPhotos();
@@ -21,8 +23,7 @@ class PhotoGrid extends Component {
   render() {
     const { loading, photos, year } = this.props;
     if (loading) {
-      // TODO: Add load indicator
-      return <p>Loading..</p>;
+      return <CircularProgress style={style} size={60} thickness={7} />;
     }
 
     return (
@@ -52,5 +53,11 @@ const mapDispatchToProps = (dispatch) => ({
 });
 
 PhotoGrid = connect(mapStateToProps, mapDispatchToProps)(PhotoGrid);
+
+const style = {
+  marginTop: '100px',
+  marginLeft: '40%',
+  width: '100%',
+};
 
 export default PhotoGrid;

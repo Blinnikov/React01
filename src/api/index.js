@@ -39,9 +39,13 @@ const photos = [
 
 const delay = (ms) => new Promise(resolve => setTimeout(resolve, ms));
 
+const getRandomDelay = (min, max) => {
+  return Math.random() * (max - min) + min;
+}
+
 export const getPhotos = (year) => {
-  console.log(Promise);
-  return delay(500).then(() => {
+  const d = getRandomDelay(500, 2000);
+  return delay(d).then(() => {
     return photos.filter(p => p.year === year);
   });
 }
