@@ -4,10 +4,6 @@ import createLogger from 'redux-logger';
 import rootReducer from './reducers';
 
 const initialState = {
-  userInfo: {
-    firstName: 'Gianluigi',
-    lastName: 'Buffon'
-  },
   layout: {
     year: 2016,
     photos: []

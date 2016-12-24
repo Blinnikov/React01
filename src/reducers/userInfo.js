@@ -1,7 +1,9 @@
 const userInfo = (state = {}, action) => {
-  // Temporarily removes warning
-  if (action) {
-    return state;
+  if (action.type === "USER_LOGGED_IN") {
+    return {
+      firstName: action.firstName,
+      lastName: action.lastName
+    };
   }
 
   return state;
