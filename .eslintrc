@@ -15,5 +15,9 @@
     "no-console": 0,
     "no-unused-vars": 1,
     "no-class-assign": 0
+  },
+  "globals": {
+    "Promise": true,
+    "setTimeout": true
   }
 }

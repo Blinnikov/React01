@@ -37,10 +37,11 @@ const photos = [
   }
 ]
 
-const delay = (ms) => new Promise(resolve => setTiemout(resolve, ms));
+const delay = (ms) => new Promise(resolve => setTimeout(resolve, ms));
 
 export const getPhotos = (year) => {
-  delay(500).then(() => {
+  console.log(Promise);
+  return delay(500).then(() => {
     return photos.filter(p => p.year === year);
   });
 }
