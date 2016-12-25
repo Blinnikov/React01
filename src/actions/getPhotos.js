@@ -1,5 +1,3 @@
-import * as api from '../api';
-
 const getPhotos = (year) => (dispatch, /* getState */) => {
   // TODO: Add isFetching check
 
