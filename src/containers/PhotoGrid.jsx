@@ -6,7 +6,7 @@ import CircularProgress from 'material-ui/CircularProgress';
 import {GridList, GridTile} from 'material-ui/GridList';
 import IconButton from 'material-ui/IconButton';
 import Subheader from 'material-ui/Subheader';
-import StarBorder from 'material-ui/svg-icons/toggle/star-border';
+import FavoriteBorder from 'material-ui/svg-icons/action/favorite-border';
 
 class PhotoGrid extends Component {
   componentDidMount() {
@@ -34,12 +34,12 @@ class PhotoGrid extends Component {
         <Subheader>You have {photos.length} photos for {year} year</Subheader>
         {photos.map((photo) => (
           <GridTile
-            key={photo.url}
-            title={photo.title}
-            subtitle={<span>by <b>{photo.author}</b></span>}
-            actionIcon={<IconButton><StarBorder color="white" /></IconButton>}
+            key={photo.id}
+            title={photo.text || 'No text provided'}
+            subtitle={<span>{photo.likes.count} likes</span>}
+            actionIcon={<IconButton><FavoriteBorder color="white" /></IconButton>}
           >
-            <img src={photo.url} />
+            <img src={photo.photo_604} />
           </GridTile>
         ))}
       </GridList>;
@@ -83,8 +83,8 @@ const styles = {
     justifyContent: 'space-around',
   },
   gridList: {
-    width: 500,
-    // height: 450,
+    width: 600,
+    height: 'calc(100vh - 120px)',
     overflowY: 'auto',
   },
 };
