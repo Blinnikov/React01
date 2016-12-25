@@ -1,7 +1,9 @@
 const photos = [
   {
     url: 'https://pp.vk.me/c630723/v630723032/2ff51/6SC9VjGiVeU.jpg',
-    year: 2016
+    year: 2016,
+    // title: '',
+    // author: ''
   },
   {
     url: 'https://pp.vk.me/c629207/v629207032/1cc9e/w9LeY06YRis.jpg',

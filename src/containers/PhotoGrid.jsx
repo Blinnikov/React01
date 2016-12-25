@@ -23,7 +23,7 @@ class PhotoGrid extends Component {
   render() {
     const { loading, photos, year } = this.props;
     if (loading) {
-      return <CircularProgress style={style} size={60} thickness={7} />;
+      return <CircularProgress style={styles.progress} size={60} thickness={7} />;
     }
 
     return (
@@ -54,10 +54,22 @@ const mapDispatchToProps = (dispatch) => ({
 
 PhotoGrid = connect(mapStateToProps, mapDispatchToProps)(PhotoGrid);
 
-const style = {
-  marginTop: '100px',
-  marginLeft: '40%',
-  width: '100%',
+const styles = {
+  progress: {
+    marginTop: '100px',
+    marginLeft: '40%',
+    width: '100%',
+  },
+  gridRoot: {
+    display: 'flex',
+    flexWrap: 'wrap',
+    justifyContent: 'space-around',
+  },
+  gridList: {
+    width: 500,
+    height: 450,
+    overflowY: 'auto',
+  },
 };
 
 export default PhotoGrid;
