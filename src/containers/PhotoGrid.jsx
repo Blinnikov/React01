@@ -26,30 +26,28 @@ class PhotoGrid extends Component {
 
   render() {
     const { loading, photos, year } = this.props;
-    if (loading) {
-      return <CircularProgress style={styles.progress} size={60} thickness={7} />;
-    }
+    const el = loading
+    ?
+      <CircularProgress style={styles.progress} size={60} thickness={7} />
+    :
+      <GridList cellHeight={180} style={styles.gridList}>
+        <Subheader>You have {photos.length} photos for {year} year</Subheader>
+        {photos.map((photo) => (
+          <GridTile
+            key={photo.url}
+            title={photo.title}
+            subtitle={<span>by <b>{photo.author}</b></span>}
+            actionIcon={<IconButton><StarBorder color="white" /></IconButton>}
+          >
+            <img src={photo.url} />
+          </GridTile>
+        ))}
+      </GridList>;
 
     return (
       <div>
-        <div>You have {photos.length} photos for {year} year</div>
         <div style={styles.gridRoot}>
-          <GridList
-            cellHeight={180}
-            style={styles.gridList}
-          >
-            <Subheader>December</Subheader>
-            {photos.map((photo) => (
-              <GridTile
-                key={photo.url}
-                title={photo.title}
-                subtitle={<span>by <b>{photo.author}</b></span>}
-                actionIcon={<IconButton><StarBorder color="white" /></IconButton>}
-              >
-                <img src={photo.url} />
-              </GridTile>
-            ))}
-          </GridList>
+        { el }
         </div>
       </div>
     );
@@ -77,9 +75,7 @@ PhotoGrid = connect(mapStateToProps, mapDispatchToProps)(PhotoGrid);
 
 const styles = {
   progress: {
-    marginTop: '100px',
-    marginLeft: '40%',
-    width: '100%',
+    marginTop: '100px'
   },
   gridRoot: {
     display: 'flex',

@@ -5,7 +5,7 @@ import * as actions from '../actions';
 
 const availableYears = [2016, 2015, 2014];
 let Filters = ({ year, setYear }) => (
-  <div>
+  <div style={styles.root}>
     {availableYears.map(availableYear => {
         return (
           <span key={availableYear}>
@@ -38,6 +38,13 @@ const mapDispatchToProps = (dispatch) => ({
     dispatch(actions.setYear(year));
   }
 });
+
+const styles = {
+  root: {
+    display: 'flex',
+    justifyContent: 'center',
+  }
+};
 
 Filters = connect(mapStateToProps, mapDispatchToProps)(Filters);
 
