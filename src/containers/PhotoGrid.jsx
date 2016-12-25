@@ -3,6 +3,10 @@ import { connect } from 'react-redux';
 import * as actions from '../actions';
 
 import CircularProgress from 'material-ui/CircularProgress';
+import {GridList, GridTile} from 'material-ui/GridList';
+import IconButton from 'material-ui/IconButton';
+import Subheader from 'material-ui/Subheader';
+import StarBorder from 'material-ui/svg-icons/toggle/star-border';
 
 class PhotoGrid extends Component {
   componentDidMount() {
@@ -28,8 +32,25 @@ class PhotoGrid extends Component {
 
     return (
       <div>
-        <span>Photo grid go here..</span>
         <div>You have {photos.length} photos for {year} year</div>
+        <div style={styles.gridRoot}>
+          <GridList
+            cellHeight={180}
+            style={styles.gridList}
+          >
+            <Subheader>December</Subheader>
+            {photos.map((photo) => (
+              <GridTile
+                key={photo.url}
+                title={photo.title}
+                subtitle={<span>by <b>{photo.author}</b></span>}
+                actionIcon={<IconButton><StarBorder color="white" /></IconButton>}
+              >
+                <img src={photo.url} />
+              </GridTile>
+            ))}
+          </GridList>
+        </div>
       </div>
     );
   }
@@ -67,7 +88,7 @@ const styles = {
   },
   gridList: {
     width: 500,
-    height: 450,
+    // height: 450,
     overflowY: 'auto',
   },
 };
