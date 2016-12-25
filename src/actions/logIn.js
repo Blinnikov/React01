@@ -6,7 +6,6 @@ const logIn = () => (dispatch) => {
   VK.Auth.login(response => {
       if (response.session) {
         const { user } = response.session;
-        console.log('Logged in user', user);
 
         dispatch({
           type: "USER_LOGIN_SUCCESS",
