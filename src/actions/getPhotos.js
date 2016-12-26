@@ -28,7 +28,7 @@ const getPhotos = (year) => (dispatch, /* getState */) => {
           type: 'GET_PHOTOS_FAILURE',
           year,
           code: r.error.error_code,
-          message: r.error.error_mgs || 'Something bad has happened'
+          message: r.error.error_msg
         });
       }
   });
