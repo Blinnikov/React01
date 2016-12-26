@@ -5,7 +5,6 @@ import ErrorMessage from './ErrorMessage'
 import Layout from './Layout';
 
 const App = ({ authenticated, errorMessage }) => {
-  console.log('ERROR MESSAGE', errorMessage);
   const layout = authenticated
       ? errorMessage
           ? <ErrorMessage message={errorMessage} />

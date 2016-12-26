@@ -7,7 +7,6 @@ const errorMessage = (state = null, action) => {
       return null;
     case 'GET_PHOTOS_FAILURE':
     case 'USER_LOGIN_FAILURE':
-      console.log('FAILURE REDUCER', action);
       return `${action.message}. Error: ${getMessageFromCode(action.code)}`;
     default:
       return state;
