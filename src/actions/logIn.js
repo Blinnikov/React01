@@ -15,7 +15,8 @@ const logIn = () => (dispatch) => {
       } else {
         dispatch({
           type: 'USER_LOGIN_FAILURE',
-          message: 'Cannot login'
+          message: 'Cannot login',
+          code: -100
         });
       }
     },
