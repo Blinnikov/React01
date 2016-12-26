@@ -26,10 +26,12 @@ class PhotoGrid extends Component {
 
   render() {
     const { loading, photos, year } = this.props;
-    const el = loading
-    ?
-      <CircularProgress style={styles.progress} size={60} thickness={7} />
-    :
+
+    if (loading) {
+      return <CircularProgress style={styles.progress} size={60} thickness={7} />;
+    }
+
+    return (
       <GridList cellHeight={180} style={styles.gridList}>
         <Subheader>You have {photos.length} photos for {year} year</Subheader>
         {photos.map((photo) => (
@@ -42,14 +44,7 @@ class PhotoGrid extends Component {
             <img src={photo.photo_604} />
           </GridTile>
         ))}
-      </GridList>;
-
-    return (
-      <div>
-        <div style={styles.gridRoot}>
-        { el }
-        </div>
-      </div>
+      </GridList>
     );
   }
 }
@@ -76,11 +71,6 @@ PhotoGrid = connect(mapStateToProps, mapDispatchToProps)(PhotoGrid);
 const styles = {
   progress: {
     marginTop: '100px'
-  },
-  gridRoot: {
-    display: 'flex',
-    flexWrap: 'wrap',
-    justifyContent: 'space-around',
   },
   gridList: {
     width: 600,
