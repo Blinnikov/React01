@@ -7,7 +7,6 @@ const getPhotos = (year) => (dispatch, /* getState */) => {
   });
 
   // TODO: Add year filter
-  // TODO: Add error message component
   VK.Api.call(
     // 'audio.getCount',
     'photos.getAll',
