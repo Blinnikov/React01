@@ -1,11 +1,15 @@
 import React, { PropTypes } from 'react'
 import AppBar from 'material-ui/AppBar';
 import UserInfo from '../containers/UserInfo';
+import ErrorMessage from './ErrorMessage'
 import Layout from './Layout';
 
-const App = ({ authenticated }) => {
+const App = ({ authenticated, errorMessage }) => {
+  console.log('ERROR MESSAGE', errorMessage);
   const layout = authenticated
-      ? <Layout />
+      ? errorMessage
+          ? <ErrorMessage message={errorMessage} />
+          : <Layout />
       : <p>Please log in to see photos..</p>;
   return (
     <div>
@@ -18,7 +22,8 @@ const App = ({ authenticated }) => {
   );
 };
 App.propTypes = {
-  authenticated: PropTypes.bool.isRequired
+  authenticated: PropTypes.bool.isRequired,
+  errorMessage: PropTypes.string
 };
 
 export default App;

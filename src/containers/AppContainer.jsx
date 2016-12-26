@@ -2,16 +2,18 @@ import React, { PropTypes } from 'react'
 import { connect } from 'react-redux';
 import App from '../components/App'
 
-let AppContainer = ({ authenticated }) => {
-  return <App authenticated={authenticated} />
+let AppContainer = ({ authenticated, errorMessage }) => {
+  return <App authenticated={authenticated} errorMessage={errorMessage} />
 }
 AppContainer.propTypes = {
-  authenticated: PropTypes.bool.isRequired
+  authenticated: PropTypes.bool.isRequired,
+  errorMessage: PropTypes.string
 };
 
-const mapStateToProps = ({ authenticated }) => {
+const mapStateToProps = ({ authenticated, errorMessage }) => {
   return {
-    authenticated
+    authenticated,
+    errorMessage
   };
 };
 
