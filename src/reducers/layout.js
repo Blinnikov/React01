@@ -4,7 +4,7 @@ const layout = (state = {}, action) => {
       return {
         ...state,
         year: action.year,
-        photos: action.response.items
+        photos: action.photos
       };
     case 'SET_YEAR_FILTER':
       return {
