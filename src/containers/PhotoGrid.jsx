@@ -7,6 +7,8 @@ import {GridList, GridTile} from 'material-ui/GridList';
 import IconButton from 'material-ui/IconButton';
 import Subheader from 'material-ui/Subheader';
 import FavoriteBorder from 'material-ui/svg-icons/action/favorite-border';
+import Favorite from 'material-ui/svg-icons/action/favorite';
+import { red500 } from 'material-ui/styles/colors';
 
 class PhotoGrid extends Component {
   componentDidMount() {
@@ -34,16 +36,19 @@ class PhotoGrid extends Component {
     return (
       <GridList cellHeight={180} style={styles.gridList}>
         <Subheader>You have {photos.length} photos for {year} year</Subheader>
-        {photos.map((photo) => (
-          <GridTile
-            key={photo.id}
-            title={photo.text || 'No text provided'}
-            subtitle={<span>{photo.likes.count} likes</span>}
-            actionIcon={<IconButton><FavoriteBorder color="white" /></IconButton>}
-          >
-            <img src={photo.photo_604} />
-          </GridTile>
-        ))}
+        {photos.map(photo => {
+          const likeBorderIcon = <IconButton><FavoriteBorder color="white" /></IconButton>;
+          const likeFullIcon = <IconButton><Favorite color={red500} /></IconButton>;
+          return (
+            <GridTile
+              key={photo.id}
+              title={photo.text || 'No text provided'}
+              subtitle={<span>{photo.likes.count} likes</span>}
+              actionIcon={likeFullIcon}
+            >
+              <img src={photo.photo_604} />
+            </GridTile>);
+        })}
       </GridList>
     );
   }
