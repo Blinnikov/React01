@@ -1,17 +1,17 @@
 const toggleLike = (photo) => (dispatch) => {
   if (photo.likes.user_likes === 1) {
-    return deleteLike();
+    return deleteLike(photo);
   } else {
-    addLike();
+    return addLike(photo)(dispatch);
   }
 };
 
-const addLike = () => (dispatch) => {
-
+const addLike = (photo) => (dispatch) => {
+  console.log('Like', photo);
 };
 
-const deleteLike = () => (dispatch) => {
-
+const deleteLike = (photo) => (dispatch) => {
+  console.log('Dislike', photo);
 };
 
 export default toggleLike;

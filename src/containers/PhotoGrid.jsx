@@ -27,7 +27,7 @@ class PhotoGrid extends Component {
   }
 
   render() {
-    const { loading, photos, year } = this.props;
+    const { loading, photos, year, toggleLike } = this.props;
 
     if (loading) {
       return <CircularProgress style={styles.progress} size={60} thickness={7} />;
@@ -37,9 +37,17 @@ class PhotoGrid extends Component {
       <GridList cellHeight={180} style={styles.gridList}>
         <Subheader>You have {photos.length} photos for {year} year</Subheader>
         {photos.map(photo => {
+          const border =
+          <IconButton onClick={() => toggleLike(photo)}>
+            <FavoriteBorder color="white" />
+          </IconButton>;
+          const fullIcon =
+            <IconButton onClick={() => toggleLike(photo)}>
+              <Favorite color={red500} />
+            </IconButton>;
           const icon = photo.likes.user_likes === 1
-            ? <IconButton><Favorite color={red500} /></IconButton>
-            : <IconButton><FavoriteBorder color="white" /></IconButton>;
+            ? fullIcon
+            : border;
           return (
             <GridTile
               key={photo.id}
@@ -58,6 +66,7 @@ PhotoGrid.propTypes = {
   year: PropTypes.number.isRequired,
   photos: PropTypes.array,
   getPhotos: PropTypes.func,
+  toggleLike: PropTypes.func,
   loading: PropTypes.bool.isRequired
 };
 
@@ -69,6 +78,9 @@ const mapStateToProps = ({ layout, loading }) => {
 const mapDispatchToProps = (dispatch) => ({
   getPhotos(year) {
     dispatch(actions.getPhotos(year));
+  },
+  toggleLike(photo) {
+    dispatch(actions.toggleLike(photo));
   }
 });
 
