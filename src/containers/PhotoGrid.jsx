@@ -37,14 +37,15 @@ class PhotoGrid extends Component {
       <GridList cellHeight={180} style={styles.gridList}>
         <Subheader>You have {photos.length} photos for {year} year</Subheader>
         {photos.map(photo => {
-          const likeBorderIcon = <IconButton><FavoriteBorder color="white" /></IconButton>;
-          const likeFullIcon = <IconButton><Favorite color={red500} /></IconButton>;
+          const icon = photo.likes.user_likes === 1
+            ? <IconButton><Favorite color={red500} /></IconButton>
+            : <IconButton><FavoriteBorder color="white" /></IconButton>;
           return (
             <GridTile
               key={photo.id}
               title={photo.text || 'No text provided'}
               subtitle={<span>{photo.likes.count} likes</span>}
-              actionIcon={likeFullIcon}
+              actionIcon={icon}
             >
               <img src={photo.photo_604} />
             </GridTile>);
