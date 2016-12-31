@@ -27,7 +27,7 @@ class PhotoGrid extends Component {
   }
 
   render() {
-    const { loading, photos, year, toggleLike } = this.props;
+    const { loading, photos, year, addLike, deleteLike } = this.props;
 
     if (loading) {
       return <CircularProgress style={styles.progress} size={60} thickness={7} />;
@@ -38,11 +38,11 @@ class PhotoGrid extends Component {
         <Subheader>You have {photos.length} photos for {year} year</Subheader>
         {photos.map(photo => {
           const border =
-            <IconButton onClick={() => toggleLike(photo)}>
+            <IconButton onClick={() => addLike(photo)}>
               <FavoriteBorder color="white" />
             </IconButton>;
           const fullIcon =
-            <IconButton onClick={() => toggleLike(photo)}>
+            <IconButton onClick={() => deleteLike(photo)}>
               <Favorite color={red500} />
             </IconButton>;
           const icon = photo.likes.user_likes === 1 ? fullIcon : border;
@@ -64,7 +64,8 @@ PhotoGrid.propTypes = {
   year: PropTypes.number.isRequired,
   photos: PropTypes.array,
   getPhotos: PropTypes.func,
-  toggleLike: PropTypes.func,
+  addLike: PropTypes.func,
+  deleteLike: PropTypes.func,
   loading: PropTypes.bool.isRequired
 };
 
@@ -77,8 +78,11 @@ const mapDispatchToProps = (dispatch) => ({
   getPhotos(year) {
     dispatch(actions.getPhotos(year));
   },
-  toggleLike(photo) {
-    dispatch(actions.toggleLike(photo));
+  addLike(photo) {
+    dispatch(actions.addLike(photo));
+  },
+  deleteLike(photo) {
+    dispatch(actions.deleteLike(photo));
   }
 });
 
