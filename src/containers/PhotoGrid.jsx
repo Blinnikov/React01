@@ -38,16 +38,14 @@ class PhotoGrid extends Component {
         <Subheader>You have {photos.length} photos for {year} year</Subheader>
         {photos.map(photo => {
           const border =
-          <IconButton onClick={() => toggleLike(photo)}>
-            <FavoriteBorder color="white" />
-          </IconButton>;
+            <IconButton onClick={() => toggleLike(photo)}>
+              <FavoriteBorder color="white" />
+            </IconButton>;
           const fullIcon =
             <IconButton onClick={() => toggleLike(photo)}>
               <Favorite color={red500} />
             </IconButton>;
-          const icon = photo.likes.user_likes === 1
-            ? fullIcon
-            : border;
+          const icon = photo.likes.user_likes === 1 ? fullIcon : border;
           return (
             <GridTile
               key={photo.id}
