@@ -82,9 +82,11 @@ const loadPhotosFromVk = (offset, count) => {
   return new Promise(
     (resolve, reject) => {
       VK.Api.call('photos.getAll', { extended: 1, offset, count, v: 5.60 }, r => {
+        console.log('RESPONSE', r);
         if (r.response) {
           resolve(r.response.items);
         } else if(r.error) {
+          console.log('ERROR', r);
           reject(r.error);
         }
 

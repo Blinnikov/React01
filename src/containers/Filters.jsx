@@ -15,7 +15,6 @@ let Filters = ({ year, setYear }) => (
               active={year === availableYear}
               setYear={setYear}
             />
-            {' '}
           </span>
         );
       }
